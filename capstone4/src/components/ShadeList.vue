@@ -1,13 +1,14 @@
 <template>
     <div>
       <header>Shade Name List</header>
-      <label for="shadeNameSelect">Select Your Shade</label>
-      <select id="shadeNameSelect" v-model="selectedShadeName">
+      <label for="shadeSelect">Select Your Shade</label>
+      <select id="shadeSelect" v-model="selectedShade">
         <option value="">Select Your Shade</option>
-        <option v-for="record in airtableData" :key="record.id" :value="record.fields.ShadeName">
-          {{ record.fields.ShadeName }}
+        <option v-for="record in airtableData" :key="record.id" :value="record.fields.Shade">
+          {{ record.fields.Shade }}
         </option>
       </select>
+      <div v-if="selectedShade">Selected Shade: {{ selectedShade }}</div>
     </div>
   </template>
   
@@ -23,15 +24,14 @@
   });
   
   export default {
-    name: 'FoundationList',
+    name: 'ShadeList',
     data() {
       return {
         airtableData: [],
-        selectedShadeName: '',
+        selectedShade: '',
       };
     },
     mounted() {
-      // Example API request using Axios
       axios
         .get('https://api.airtable.com/v0/appFlshcnftsNhlyj/tbl9vXFTlipcXcHRF', {
           headers: {
@@ -39,10 +39,7 @@
           },
         })
         .then(response => {
-          // Log the data structure to the console for debugging
-          console.log('Airtable Data:', response.data);
-          
-          // Update data with the specific field you want to display
+          console.log(response.data);
           this.airtableData = response.data.records;
         })
         .catch(error => {

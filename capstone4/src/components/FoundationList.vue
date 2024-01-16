@@ -1,15 +1,16 @@
 <template>
-    <div>
-     <header>Foundation Name List</header>
-      <label for="foundationSelect">Select Your Foundation Name</label>
-      <select id="foundationSelect" v-model="selectedFoundationName">
-        <option value="" >Select Your Foundation Name</option>
-        <option v-for="record in airtableData" :key="record.id" :value="record.fields.FoundationName">
-          {{ record.fields.FoundationName }}
-        </option>
-      </select>
-    </div>
-  </template>
+  <div>
+    <label for="foundationSelect">Select Your Foundation</label>
+    <select id="foundationSelect" v-model="selectedFoundation">
+      <option value="" >Select Your Foundation</option>
+      <option v-for="record in filteredFoundationName" :key="record.id" :value="record.fields.Foundation">
+        {{ record.fields.Foundation }}
+      </option>
+    </select>
+    <div class="response" v-if="selectedFoundation">Selected Foundation: {{ selectedFoundation }}</div>
+    <!-- <ShadeList v-if="selectedFoundation" :filteredFoundation="filteredFoundation" /> -->
+  </div>
+</template>
   
   <script>
   import axios from 'axios';
@@ -27,7 +28,7 @@
     data() {
     return {
       airtableData: [],
-      selectedFoundationName: '',
+      selectedFoundation: '',
       };
     },
     mounted() {
@@ -39,6 +40,7 @@
       })
       .then(response => {
         // Update data with the specific field you want to display
+        console.log(response.data);
         this.airtableData = response.data.records;
       })
       .catch(error => {
