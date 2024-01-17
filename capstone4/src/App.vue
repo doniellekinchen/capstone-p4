@@ -2,20 +2,28 @@
   <h1>TITLE GOES HERE</h1>
   <BrandList />
 <br/>
-  <button class="button1">Submit</button>
+<FoundationList />
+<br/>
+<ShadeList />
+
+<MatchList />
+  <!-- <button class="button1">Submit</button> -->
 </template>
 
 <script>
 import BrandList from './components/BrandList.vue'
-// import FoundationList from './components/FoundationList.vue'
-// import ShadeList from './components/ShadeList.vue'
+import FoundationList from './components/FoundationList.vue';
+import MatchList from './components/MatchList.vue';
+import ShadeList from './components/ShadeList.vue';
+
 
 export default {
   name: 'App',
   components: {
     BrandList,
-    // FoundationList,
-    // ShadeList,
+    FoundationList,
+    ShadeList,
+    MatchList
 }
 }
 </script>
