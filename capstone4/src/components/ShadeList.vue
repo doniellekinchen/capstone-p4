@@ -4,12 +4,17 @@
     <label for="shadeSelect">Select Your Shade</label>
     <select id="shadeSelect" v-model="selectedShade">
       <option value="">Select Your Shade</option>
-      <option v-for="record in filteredShadeData" :key="record.id" :value="record.fields.Shade">
+      <option
+        v-for="record in filteredShadeData"
+        :key="record.id"
+        :value="record.fields.Shade"
+      >
         {{ record.fields.Shade }}
       </option>
     </select>
     <div v-if="selectedShade">Selected Shade: {{ selectedShade }}</div>
-    <MatchList v-if="!loading"
+    <MatchList
+      v-if="!loading"
       :selectedBrand="stillSelectedBrand"
       :selectedFoundation="stillSelectedFoundation"
       :selectedShade="selectedShade"
@@ -30,43 +35,47 @@ Airtable.configure({
 });
 
 export default {
-   props: ['selectedBrand', 'selectedFoundation'],  
+  props: ['selectedBrand', 'selectedFoundation'],
   components: { MatchList },
   computed: {
+    stillSelectedFoundation() {
+      return this.selectedFoundation;
+    },
+    stillSelectedBrand() {
+      return this.selectedBrand;
+    },
     filteredShadeData() {
-      console.log('shadelist', this.selectedBrand)
-        console.log('shadelist', this.selectedFoundation)
-        console.log('shadelist', this.selectedShade)
-      return this.shadeData.filter(record => record.fields.Foundation === this.selectedFoundation);
-    }
-   }, 
- data() {
-      return {
-        stillSelectedFoundation: this.selectedFoundation,
-        stillSelectedBrand: this.selectedBrand,
-        selectedShade: '',
-        shadeData:[],
-        loading: true,
-      }
-    }, 
-
-   watch: {
+      console.log('shadelist', this.selectedBrand);
+      console.log('shadelist', this.selectedFoundation);
+      console.log('shadelist', this.selectedShade);
+      return this.shadeData.filter(
+        (record) => record.fields.Foundation === this.selectedFoundation
+      );
+    },
+  },
+  data() {
+    return {
+      selectedShade: '',
+      shadeData: [],
+      loading: true,
+    };
+  },
+  watch: {
     selectedBrand: 'fetchData',
     selectedFoundation: 'fetchData',
-  selectedFoundation(newVal) {
-    // this.selectedFoundation = newVal
-    console.log('selectedFoundation changed:', newVal);
-    
+    selectedFoundation(newVal) {
+      console.log('selectedFoundation changed:', newVal);
+    },
   },
-},
-  
-    mounted() {
+  mounted() {
     this.fetchData();
   },
-    methods: {
-  fetchData() {
-    axios
-      .get('https://api.airtable.com/v0/appFlshcnftsNhlyj/tbl9vXFTlipcXcHRF', {
+
+  methods: {
+    fetchData() {
+      axios.get(
+        'https://api.airtable.com/v0/appFlshcnftsNhlyj/tbl9vXFTlipcXcHRF',
+        {
         headers: {
           Authorization: `Bearer ${API_KEY}`,
         },
