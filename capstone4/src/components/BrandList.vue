@@ -13,7 +13,7 @@
       <FoundationList v-if="selectedBrand" :airtableData="airtableData" :selectedBrand="selectedBrand" />
     </div>
     <div>
-      <button class="button1">Submit</button>
+      <!-- <button class="button1">Submit</button> -->
       <!-- <ShadeList :selectedFoundation="selectedFoundation" /> -->
       <!-- <ShadeList  /> -->
     </div>
@@ -40,7 +40,7 @@ export default {
     return {
       airtableData: [],
       selectedBrand: '',
-      selectedFoundation: '',
+      // selectedFoundation: '',
     };
   },
 

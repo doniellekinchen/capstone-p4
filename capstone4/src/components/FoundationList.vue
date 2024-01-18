@@ -8,8 +8,7 @@
       </option>
     </select>
     <div class="response" v-if="selectedFoundation">Selected Foundation: {{ selectedFoundation }}</div>
-    <!-- <ShadeList v-if="selectedFoundation" :filteredFoundation="filteredFoundation" /> -->
-    <ShadeList :selectedFoundation="selectedFoundation" />
+    <ShadeList v-if="!loading" :selectedBrand="stillSelectedBrand" :selectedFoundation="selectedFoundation" />
   </div>
 </template>
   
@@ -19,7 +18,6 @@
   import ShadeList from './ShadeList.vue';
   
   const API_KEY = process.env.VUE_APP_AIRTABLE_API_KEY;
-  // console.log(selectedBrand)
 
   Airtable.configure({
     endpointUrl: 'https://api.airtable.com',
@@ -31,36 +29,48 @@
    computed: {
     filteredAirtableData() {
       console.log(this.airtableData)
+      console.log('brandsss', this.selectedBrand)
       return this.airtableData.filter(record => record.fields.Brand === this.selectedBrand);
     }
    },
     data() {
       return {
+        stillSelectedBrand: this.selectedBrand,
         selectedFoundation: '',
+        loading: true,
       }
     },  
-    mounted() {
+
+    watch: {
+    airtableData: 'fetchData',
+    selectedBrand: 'fetchData',
+  },
+  mounted() {
+    this.fetchData();
+  },
+  methods: {
     
-    axios.get('https://api.airtable.com/v0/appFlshcnftsNhlyj/tbl9vXFTlipcXcHRF', {
+  fetchData() {
+    axios
+      .get('https://api.airtable.com/v0/appFlshcnftsNhlyj/tbl9vXFTlipcXcHRF', {
         headers: {
           Authorization: `Bearer ${API_KEY}`,
         },
       })
       .then(response => {
-        console.log(response.data);
-        this.airtableData = response.data.records
-        ;
+        console.log(response.data.records);
+        this.shadeData = response.data.records;
       })
       .catch(error => {
         console.error('Error fetching data:', error);
-      });
+      })
+      .finally(() => {
+        this.loading = false;
+      })
+      console.log("Selected Foundation in ShadeList:", this.selectedFoundation);
+      
   },
-  components: { ShadeList },
-}; 
+},
+components: { ShadeList }
+}
 </script>
-
-<style>
-    h1 {
-        color: red;
-    }
-</style>
