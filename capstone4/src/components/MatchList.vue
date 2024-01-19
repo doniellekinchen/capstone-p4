@@ -8,14 +8,14 @@
     </ol>
     <div v-if="matchedResults.length > 0">
       <p>Matches: {{ matchedResults.length[0] }}</p>
-      <ul>
+      <ol>
         <li v-for="result in filteredMatchedResults" :key="result.id">
           {{ result.fields.Brand }} - {{ result.fields.Foundation }} - {{ result.fields.Shade }}
         </li>
-      </ul>
+      </ol>
     </div>
     <div v-else>
-      <p>No matches found.</p>
+      <p>No matches found. Our database may need updates with more brands.</p>
     </div>
   </div>
 </template>

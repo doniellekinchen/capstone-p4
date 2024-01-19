@@ -3,15 +3,15 @@
     <label for="foundationSelect">Select Your Foundation</label>
     <select id="foundationSelect" v-model="selectedFoundation">
       <option value="" >Select Your Foundation</option>
-      <option v-for="record in filteredAirtableData" :key="record.id" :value="record.fields.Foundation">
-        {{ record.fields.Foundation }}
+      <option v-for="foundation in uniqueFoundations" :key="foundation" :value="foundation">
+        {{ foundation }}
       </option>
     </select>
     <div class="response" v-if="selectedFoundation">Selected Foundation: {{ selectedFoundation }}</div>
     <ShadeList v-if="!loading" :selectedBrand="stillSelectedBrand" :selectedFoundation="selectedFoundation" />
   </div>
 </template>
-  
+
   <script>
   import axios from 'axios';
   import Airtable from 'airtable';
@@ -27,12 +27,17 @@
   export default {
    props: ['airtableData', 'selectedBrand'],
    computed: {
-    filteredAirtableData() {
-      console.log(this.airtableData)
-      console.log('brandsss', this.selectedBrand)
-      return this.airtableData.filter(record => record.fields.Brand === this.selectedBrand);
-    }
-   },
+  filteredAirtableData() {
+    return this.airtableData.filter(record => record.fields.Brand === this.selectedBrand);
+  },
+  uniqueFoundations() {
+    const uniqueSet = new Set();
+    this.filteredAirtableData.forEach(record => {
+      uniqueSet.add(record.fields.Foundation);
+    });
+    return Array.from(uniqueSet);
+  },
+},
     data() {
       return {
         stillSelectedBrand: this.selectedBrand,
@@ -40,7 +45,6 @@
         loading: true,
       }
     },  
-
     watch: {
     airtableData: 'fetchData',
     selectedBrand: 'fetchData',
