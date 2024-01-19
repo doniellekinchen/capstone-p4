@@ -1,13 +1,21 @@
 <template>
-  <h1>TITLE GOES HERE</h1>
+  <img class="logo" style="display: center" src="./assets/transparentlogo2.png" alt="logo" />
+  <div class="brands">
   <BrandList />
+  </div>
 <br/>
+<div class="foundation">
 <FoundationList />
+</div>
 <br/>
+<div class="shade">
 <ShadeList />
-
+</div>
+<br/>
+<div class="matches">
 <MatchList />
-  <!-- <button class="button1">Submit</button> -->
+</div>
+
 </template>
 
 <script>
@@ -23,12 +31,17 @@ export default {
     BrandList,
     FoundationList,
     ShadeList,
-    MatchList
-}
-}
+    MatchList,
+ },
+};
 </script>
 
+
 <style>
+body {
+  background-color: #e4e2dd;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -36,21 +49,50 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
 
-.button1 {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: black;
-  border: none;
-  border-radius: 50%;
-  color: white;
-  padding: 20px;
+ select {
+  appearance: none;
+  /* safari */
+  -webkit-appearance: none;
+  /* other styles for aesthetics */
+  width: 30%;
+  /* text-align: center; */
+  font-size: 1.15rem;
+  padding: 0.675em 6em 0.675em 1em;
+  background-color: #fff;
+  border: 2px solid rgb(165, 42, 42);
+  border-radius: 0.25rem;
+  color: #000;
+  cursor: pointer;
+}
+
+option {
+  text-align: center; 
+}
+
+.logo{
+  width: 500px;
+}
+
+.matchtitle{
+  background-color: tan;
+}
+
+.ulist{
+  /* background-color: aqua; */
+  list-style-type: none;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
 }
+.brands {
+  /* background-color: red; */
+ color: brown;
 }
+.foundation {
+  /* background-color: yellow; */
+}
+.shade {
+ /* background-color: green; */
+ }
+
 </style>

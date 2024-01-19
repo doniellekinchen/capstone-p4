@@ -1,20 +1,24 @@
 <template>
   <div>
-    <header>Brand List</header>
     <div v-if="isLoading">Loading...</div>
-    <div v-else>
-      <label for="brandSelect">Select Your Brand</label>
+        <div v-else>
+      <!-- <label for="brandSelect">Select Your Brand: </label> -->
+      <br />
+      <div class="select-container">
       <select id="brandSelect" v-model="selectedBrand">
         <option value="">Select Your Brand</option>
         <option v-for="brand in uniqueBrands" :key="brand" :value="brand">
           {{ brand }}
         </option>
       </select>
-      <div class="response" v-if="selectedBrand"><b>Selected Brand: </b>{{ selectedBrand }}</div>
-      <div>
+    </div>
+      <br/>
+      <!-- <div class="response" v-if="selectedBrand"><b>Selected Brand: </b>{{ selectedBrand }}</div> -->
+      <div class="foundation">
         <FoundationList v-if="selectedBrand" :airtableData="airtableData" :selectedBrand="selectedBrand" />
       </div>
     </div>
+    <button @click="refreshData">Refresh</button>
   </div>
 </template>
 
@@ -57,7 +61,7 @@ export default {
         },
       })
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         this.airtableData = response.data.records;
         this.isLoading = false;
       })
@@ -66,6 +70,42 @@ export default {
         this.isLoading = false;
       });
   },
+  
   components: { FoundationList },
+
+methods: {
+    // Method to reset selected values and clear the match list
+    refreshData() {
+      this.selectedBrand = '';
+      this.selectedFoundation = '';
+      this.selectedShade = '';
+      this.matchedResults = [];
+    },
+  }
 };
 </script>
+
+<style>
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  font-size: 1.15rem;
+  padding: 0.675em 6em 0.675em 1em;
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 0.25rem;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Apply styles to the parent container to center the text */
+.select-container {
+  text-align: center;
+}
+
+/* Apply styles to the option tag */
+option {
+  text-align: center;
+}
+</style>

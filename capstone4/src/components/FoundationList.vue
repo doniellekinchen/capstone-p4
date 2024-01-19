@@ -1,14 +1,19 @@
 <template>
   <div>
-    <label for="foundationSelect">Select Your Foundation</label>
+    <!-- <label for="foundationSelect">Select Your Foundation: <br/></label> -->
+    <div class="select-container">
     <select id="foundationSelect" v-model="selectedFoundation">
       <option value="" >Select Your Foundation</option>
       <option v-for="foundation in uniqueFoundations" :key="foundation" :value="foundation">
         {{ foundation }}
       </option>
     </select>
-    <div class="response" v-if="selectedFoundation">Selected Foundation: {{ selectedFoundation }}</div>
+  </div>
+    <br/>
+    <!-- <div v-if="selectedFoundation">Selected Foundation: {{ selectedFoundation }}</div> -->
+    <div class="shade">
     <ShadeList v-if="!loading" :selectedBrand="stillSelectedBrand" :selectedFoundation="selectedFoundation" />
+    </div>
   </div>
 </template>
 
@@ -62,7 +67,7 @@
         },
       })
       .then(response => {
-        console.log(response.data.records);
+        // console.log(response.data.records);
         this.shadeData = response.data.records;
       })
       .catch(error => {
@@ -71,7 +76,7 @@
       .finally(() => {
         this.loading = false;
       })
-      console.log("Selected Foundation in ShadeList:", this.selectedFoundation);
+      // console.log("Selected Foundation in ShadeList:", this.selectedFoundation);
       
   },
 },

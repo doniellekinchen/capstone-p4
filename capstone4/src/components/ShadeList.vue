@@ -1,7 +1,7 @@
 <template>
   <div>
-    <header>Shade Name List</header>
-    <label for="shadeSelect">Select Your Shade</label>
+    <!-- <label for="shadeSelect">Select Your Shade</label> -->
+    <div class="select-container">
     <select id="shadeSelect" v-model="selectedShade">
       <option value="">Select Your Shade</option>
       <option
@@ -12,7 +12,9 @@
         {{ record.fields.Shade }}
       </option>
     </select>
-    <div v-if="selectedShade">Selected Shade: {{ selectedShade }}</div>
+  </div>
+    <br/>
+    <!-- <div v-if="selectedShade">Selected Shade: {{ selectedShade }}</div> -->
     <MatchList
       v-if="!loading"
       :selectedBrand="stillSelectedBrand"
@@ -45,9 +47,9 @@ export default {
       return this.selectedBrand;
     },
     filteredShadeData() {
-      console.log('shadelist', this.selectedBrand);
-      console.log('shadelist', this.selectedFoundation);
-      console.log('shadelist', this.selectedShade);
+      // console.log('shadelist', this.selectedBrand);
+      // console.log('shadelist', this.selectedFoundation);
+      // console.log('shadelist', this.selectedShade);
       return this.shadeData.filter(
         (record) => record.fields.Foundation === this.selectedFoundation
       );
@@ -63,10 +65,10 @@ export default {
   watch: {
     selectedBrand: 'fetchData',
     selectedFoundation: 'fetchData',
-    selectedFoundation(newVal) {
-      console.log('selectedFoundation changed:', newVal);
+    // selectedFoundation(newVal) {
+      // console.log('selectedFoundation changed:', newVal);
     },
-  },
+    
   mounted() {
     this.fetchData();
   },
@@ -81,7 +83,7 @@ export default {
         },
       })
       .then(response => {
-        console.log(response.data.records);
+        // console.log(response.data.records);
         this.shadeData = response.data.records;
       })
       .catch(error => {
@@ -90,8 +92,9 @@ export default {
       .finally(() => {
         this.loading = false;
       })
-      console.log("Selected Foundation in ShadeList:", this.selectedFoundation);
+      // console.log("Selected Foundation in ShadeList:", this.selectedFoundation);
   },
+  
 }
 }
 </script>

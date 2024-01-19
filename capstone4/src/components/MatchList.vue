@@ -1,24 +1,26 @@
 <template>
   <div>
-    <h1>Match List</h1>
-    <ol for="filterMatch">
+    <h1 class="matchtitle">Match List</h1>
+    <ul>
       <li v-for="record in filteredUndertoneData" :key="record.id" :value="undertone[0].fields.undertone">
         {{ record.fields.Brand }} - {{ record.fields.Foundation }} - {{ record.fields.Shade }}
       </li>
-    </ol>
-    <div v-if="matchedResults.length > 0">
-      <p>Matches: {{ matchedResults.length[0] }}</p>
-      <ol>
+    </ul>
+    <div class="matchlist" v-if="matchedResults.length > 0">
+      <h3>Here is a list of your matches! We are constantly updating so check back frequently! {{ matchedResults.length[0] }} </h3>
+      <ul class="ulist">
         <li v-for="result in filteredMatchedResults" :key="result.id">
           {{ result.fields.Brand }} - {{ result.fields.Foundation }} - {{ result.fields.Shade }}
         </li>
-      </ol>
+      </ul>
+      <h3>Now head to your local Sephora or Ulta and try your new shade! </h3>
     </div>
     <div v-else>
-      <p>No matches found. Our database may need updates with more brands.</p>
+      <p>No matches found yet. Our database may need updates with more brands.</p>
     </div>
   </div>
 </template>
+
 
 <script>
 import axios from 'axios';
@@ -46,9 +48,11 @@ export default {
         record.fields.Foundation === this.selectedFoundation &&
         record.fields.Shade === this.selectedShade)
 
-    let matchedUndertone = this.undertoneData.filter(record => record.fields.undertone === undertone[0].fields.undertone)
-    console.log(matchedUndertone)
-    this.matchedResults = matchedUndertone
+    if (undertone.length > 0 && undertone[0].fields) {
+    let matchedUndertone = this.undertoneData.filter(record => record.fields.undertone === undertone[0].fields.undertone);
+    console.log(matchedUndertone);
+    this.matchedResults = matchedUndertone;
+  }
     
       return this.undertoneData.filter(record =>
         record.fields.brand === this.selectedBrand &&
@@ -111,3 +115,11 @@ export default {
   },
 };
 </script>
+
+<style>
+
+  h3 {
+    color: black;
+  }
+
+</style>
