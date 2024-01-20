@@ -84,28 +84,3 @@ methods: {
   }
 };
 </script>
-
-<style>
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 100%;
-  font-size: 1.15rem;
-  padding: 0.675em 6em 0.675em 1em;
-  background-color: #fff;
-  border: 1px solid #caced1;
-  border-radius: 0.25rem;
-  color: #000;
-  cursor: pointer;
-}
-
-/* Apply styles to the parent container to center the text */
-.select-container {
-  text-align: center;
-}
-
-/* Apply styles to the option tag */
-option {
-  text-align: center;
-}
-</style>

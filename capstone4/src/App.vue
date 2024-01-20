@@ -3,7 +3,7 @@
   <div class="brands">
   <BrandList />
   </div>
-<br/>
+<!-- <br/>
 <div class="foundation">
 <FoundationList />
 </div>
@@ -14,24 +14,24 @@
 <br/>
 <div class="matches">
 <MatchList />
-</div>
+</div>  -->
 
 </template>
 
 <script>
 import BrandList from './components/BrandList.vue'
-import FoundationList from './components/FoundationList.vue';
-import MatchList from './components/MatchList.vue';
-import ShadeList from './components/ShadeList.vue';
+// import FoundationList from './components/FoundationList.vue';
+// import MatchList from './components/MatchList.vue';
+// import ShadeList from './components/ShadeList.vue';
 
 
 export default {
   name: 'App',
   components: {
     BrandList,
-    FoundationList,
-    ShadeList,
-    MatchList,
+//     FoundationList,
+//     ShadeList,
+//     MatchList,
  },
 };
 </script>
@@ -39,7 +39,9 @@ export default {
 
 <style>
 body {
-  background-color: #e4e2dd;
+  /* background-color: #e4e2dd; */
+  background-image: url('./assets/texturedbkg.png');
+  /* background-size: cover; */
 }
 
 #app {
@@ -50,23 +52,19 @@ body {
   color: #2c3e50;
   margin-top: 60px;
 }
-
  select {
   appearance: none;
-  /* safari */
   -webkit-appearance: none;
-  /* other styles for aesthetics */
   width: 30%;
-  /* text-align: center; */
   font-size: 1.15rem;
-  padding: 0.675em 6em 0.675em 1em;
+  /* padding: 0.675em 6em 0.675em 1em; */
   background-color: #fff;
   border: 2px solid rgb(165, 42, 42);
   border-radius: 0.25rem;
   color: #000;
   cursor: pointer;
+  box-shadow: 10px 10px;
 }
-
 option {
   text-align: center; 
 }
@@ -77,22 +75,46 @@ option {
 
 .matchtitle{
   background-color: tan;
+  width: 50%;
+  /* padding-right: 1em; */
+  position: static;
+  margin: auto;
+  box-shadow: 10px 10px;
 }
 
+h3 {
+    color: black;
+    width: 50%;
+    margin: auto;
+  }
+
 .ulist{
-  /* background-color: aqua; */
   list-style-type: none;
   text-align: center;
 }
+
+li {
+  border: 1px solid #ddd; 
+  margin-top: -1px; 
+  background-color: tan; 
+  width: 50%;
+  margin: auto;
+  box-shadow: 5px 5px;
+}
+
 .brands {
-  /* background-color: red; */
- color: brown;
+ color: black;
 }
-.foundation {
-  /* background-color: yellow; */
+
+
+
+.select-container {
+  text-align: center;
 }
-.shade {
- /* background-color: green; */
- }
+
+
+option {
+  text-align: center;
+}
 
 </style>

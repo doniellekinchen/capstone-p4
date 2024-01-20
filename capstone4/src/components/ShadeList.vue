@@ -14,6 +14,7 @@
     </select>
   </div>
     <br/>
+    <hr>
     <!-- <div v-if="selectedShade">Selected Shade: {{ selectedShade }}</div> -->
     <MatchList
       v-if="!loading"

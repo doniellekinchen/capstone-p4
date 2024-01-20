@@ -10,7 +10,10 @@
       <h3>Here is a list of your matches! We are constantly updating so check back frequently! {{ matchedResults.length[0] }} </h3>
       <ul class="ulist">
         <li v-for="result in filteredMatchedResults" :key="result.id">
-          {{ result.fields.Brand }} - {{ result.fields.Foundation }} - {{ result.fields.Shade }}
+          {{ result.fields.Brand }}
+          {{ result.fields.Foundation }}
+          {{ result.fields.Shade }}
+          <br/>
         </li>
       </ul>
       <h3>Now head to your local Sephora or Ulta and try your new shade! </h3>
@@ -115,11 +118,3 @@ export default {
   },
 };
 </script>
-
-<style>
-
-  h3 {
-    color: black;
-  }
-
-</style>
