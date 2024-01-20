@@ -42,19 +42,26 @@ export default {
     };
   },
   computed: {
-  filteredUndertoneData() {
+   filteredUndertoneData() {
     let undertone = this.undertoneData.filter(record =>
-      record.fields.Brand === this.selectedBrand &&
-      record.fields.Foundation === this.selectedFoundation &&
-      record.fields.Shade === this.selectedShade);
+        record.fields.Brand === this.selectedBrand &&
+        record.fields.Foundation === this.selectedFoundation &&
+        record.fields.Shade === this.selectedShade)
 
-    return this.undertoneData.filter(record =>
-      record.fields.brand === this.selectedBrand &&
-      record.fields.foundation === this.selectedFoundation &&
-      record.fields.shade === this.selectedShade &&
-      record.fields.undertone === (undertone.length > 0 ? undertone[0].fields.undertone : this.undertoneData)
-    );
-  },
+    if (undertone.length > 0 && undertone[0].fields) {
+    let matchedUndertone = this.undertoneData.filter(record => record.fields.undertone === undertone[0].fields.undertone);
+    console.log(matchedUndertone);
+    this.matchedResults = matchedUndertone;
+  }
+    
+      return this.undertoneData.filter(record =>
+        record.fields.brand === this.selectedBrand &&
+        record.fields.foundation === this.selectedFoundation &&
+        record.fields.shade === this.selectedShade &&
+        record.fields.undertone === this.undertoneData
+      
+      );
+    },
     filteredMatchedResults() {
       return this.matchedResults.filter(result => !this.isSelected(result));
     },
@@ -76,35 +83,27 @@ export default {
     
   },
   mounted() {
-  this.fetchData();
-},
-methods: {
-  fetchData() {
-    if (!this.selectedBrand || !this.selectedFoundation || !this.selectedShade) {
-      this.undertoneData = [];
-      return;
-    }
-
-    axios.get('https://api.airtable.com/v0/appFlshcnftsNhlyj/tbl9vXFTlipcXcHRF', {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-      },
-    })
-    .then(response => {
-      this.undertoneData = response.data.records;
-      // Move the side-effect code here
-      let undertone = this.undertoneData.filter(record =>
-        record.fields.Brand === this.selectedBrand &&
-        record.fields.Foundation === this.selectedFoundation &&
-        record.fields.Shade === this.selectedShade);
-
-      let matchedUndertone = this.undertoneData.filter(record => record.fields.undertone === (undertone.length > 0 ? undertone[0].fields.undertone : this.undertoneData));
-      this.matchedResults = matchedUndertone;
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    });
+    this.fetchData();
   },
+  methods: {
+    fetchData() {
+      if (!this.selectedBrand || !this.selectedFoundation || !this.selectedShade) {
+        this.undertoneData = [];
+        return;
+      }
+
+      axios.get('https://api.airtable.com/v0/appFlshcnftsNhlyj/tbl9vXFTlipcXcHRF', {
+        headers: {
+          Authorization: `Bearer ${API_KEY}`,
+        },
+      })
+      .then(response => {
+        this.undertoneData = response.data.records;
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+    },
     // Function to check if a result is the currently selected item
     isSelected(result) {
       return (
