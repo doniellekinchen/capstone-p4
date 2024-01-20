@@ -1,4 +1,3 @@
-/* eslint-disable */
 <template>
   <div>
     <h1 class="matchtitle">Match List</h1>
@@ -52,6 +51,7 @@ export default {
     if (undertone.length > 0 && undertone[0].fields) {
     let matchedUndertone = this.undertoneData.filter(record => record.fields.undertone === undertone[0].fields.undertone);
     console.log(matchedUndertone);
+    // eslint-disable-next-line vue/no-side-effects-in-computed-properties
     this.matchedResults = matchedUndertone;
   }
     
