@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <div>
     <h1 class="matchtitle">Match List</h1>
