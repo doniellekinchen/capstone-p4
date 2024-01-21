@@ -12,7 +12,7 @@ Shady is your go-to beauty assistant designed to simplify the process of discove
 <p>🌈 Precise Color Matching: Shady utilizes cutting-edge algorithms to analyze your skin tone and recommend the most accurate foundation shade from a wide range of renowned brands.
 <br/>
 <br/>
-🛍️ Brand Diversity: Shady collaborates with top beauty brands to provide an extensive database of foundation shades. From high-end to drugstore, we've got you covered.
+🛍️ Brand Diversity: Shady researches the top beauty brands to provide an extensive database of foundation shades. From high-end to drugstore, we've got you covered.
 <br/>
 <br/>
 📅 Real-Time Updates: Stay in the loop with the latest foundation releases and updates. Our database is continually updated, ensuring you have access to the most recent beauty offerings.
@@ -20,7 +20,24 @@ Shady is your go-to beauty assistant designed to simplify the process of discove
 <br/>
 Whether you're a makeup enthusiast or a beauty novice, Shady is here to elevate your foundation game and enhance your natural glow.
 
-Discover your perfect shade effortlessly with Shady – Where Beauty Meets Innovation.</p>
+Discover your shade match effortlessly with Shady – Where Beauty Meets Innovation.</p>
+
+<br/>
+
+<h2 class="features">Connect with Shady:</h2>
+
+<p>📱 Follow us on Instagram for beauty tips and updates. |
+
+💌 Subscribe to our newsletter for exclusive offers and makeup insights. |
+
+📧 Have questions? Reach out to our support team at support@shadyapp.com. |
+
+Download the Shady App:
+
+📲 Available on the App Store and Google Play.
+
+</p>
+<br/>
 </div>
 </template>
 
@@ -39,6 +56,7 @@ p {
 
 .welcome {
     color: #edba94;
+    font-size: 60px;
     -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
