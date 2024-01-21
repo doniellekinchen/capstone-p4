@@ -74,7 +74,6 @@ export default {
   components: { FoundationList },
 
 methods: {
-    // Method to reset selected values and clear the match list
     refreshData() {
       this.selectedBrand = '';
       this.selectedFoundation = '';

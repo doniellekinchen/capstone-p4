@@ -16,7 +16,7 @@
           <br/>
         </li>
       </ul>
-      <h3>Now head to your local Sephora or Ulta and try your new shade! </h3>
+      <h3>Now head to your local beauty store and try your new shade! </h3>
     </div>
     <div v-else>
       <p>No matches found yet. Our database may need updates with more brands.</p>

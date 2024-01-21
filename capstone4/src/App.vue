@@ -1,38 +1,23 @@
 <template>
-  <img class="logo" style="display: center" src="./assets/transparentlogo2.png" alt="logo" />
-  <div class="brands">
-  <BrandList />
-  </div>
-<!-- <br/>
-<div class="foundation">
-<FoundationList />
-</div>
-<br/>
-<div class="shade">
-<ShadeList />
-</div>
-<br/>
-<div class="matches">
-<MatchList />
-</div>  -->
-
+  <div class="app-container">
+    <img class="logo" style="display: center" src="./assets/whitetextshadow.png" alt="logo" />
+    <br/>
+    <NavBar />
+    <main class="brands">
+      <router-view></router-view>
+      </main>
+    </div>
 </template>
 
-<script>
-import BrandList from './components/BrandList.vue'
-// import FoundationList from './components/FoundationList.vue';
-// import MatchList from './components/MatchList.vue';
-// import ShadeList from './components/ShadeList.vue';
 
+<script>
+import NavBar from './components/NavBar.vue';
 
 export default {
   name: 'App',
   components: {
-    BrandList,
-//     FoundationList,
-//     ShadeList,
-//     MatchList,
- },
+    NavBar,
+},
 };
 </script>
 
@@ -40,8 +25,9 @@ export default {
 <style>
 body {
   /* background-color: #e4e2dd; */
-  background-image: url('./assets/texturedbkg.png');
+  /* background-image: url('./assets/texturedbkg.png'); */
   /* background-size: cover; */
+  background: linear-gradient(to right, #a90329 2%,#8f0222 49%,#6d0019 100%);
 }
 
 #app {
@@ -51,7 +37,13 @@ body {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  
 }
+
+.app-container {
+  animation: fadeIn 2s ease-in-out;
+}
+
  select {
   appearance: none;
   -webkit-appearance: none;
@@ -74,7 +66,7 @@ option {
 }
 
 .matchtitle{
-  background-color: tan;
+  background-color: white;
   width: 50%;
   /* padding-right: 1em; */
   position: static;
@@ -82,8 +74,22 @@ option {
   box-shadow: 10px 10px;
 }
 
+button{
+  background-color: white;
+  border-width: 5px;
+  border-radius: 50%;
+  border-color: #000000;
+  color: #000;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+}
+
 h3 {
-    color: black;
+    color: white;
     width: 50%;
     margin: auto;
   }
@@ -96,7 +102,7 @@ h3 {
 li {
   border: 1px solid #ddd; 
   margin-top: -1px; 
-  background-color: tan; 
+  background-color: white; 
   width: 50%;
   margin: auto;
   box-shadow: 5px 5px;
@@ -105,8 +111,6 @@ li {
 .brands {
  color: black;
 }
-
-
 
 .select-container {
   text-align: center;
@@ -117,4 +121,12 @@ option {
   text-align: center;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 </style>
