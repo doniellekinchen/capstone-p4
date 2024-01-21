@@ -22,7 +22,7 @@
   import Airtable from 'airtable';
   import ShadeList from './ShadeList.vue';
   
-  const API_KEY = process.env.VUE_APP_AIRTABLE_API_KEY;
+  const API_KEY = process.env.VUE_APP_AIRTABLE_KEY;
 
   Airtable.configure({
     endpointUrl: 'https://api.airtable.com',

@@ -13,7 +13,6 @@
       </select>
     </div>
       <br/>
-      <!-- <div class="response" v-if="selectedBrand"><b>Selected Brand: </b>{{ selectedBrand }}</div> -->
       <div class="foundation">
         <FoundationList v-if="selectedBrand" :airtableData="airtableData" :selectedBrand="selectedBrand" />
       </div>
@@ -27,7 +26,7 @@ import axios from 'axios';
 import Airtable from 'airtable';
 import FoundationList from './FoundationList.vue';
 
-const API_KEY = process.env.VUE_APP_AIRTABLE_API_KEY;
+const API_KEY = process.env.VUE_APP_AIRTABLE_KEY;
 
 Airtable.configure({
   endpointUrl: 'https://api.airtable.com',
