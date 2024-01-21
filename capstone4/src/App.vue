@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <img class="logo" style="display: center" src="./assets/whitetextshadow.png" alt="logo" />
+    <img class="logo" style="display: center" src="./assets/whitetransparentunblur.png" alt="logo" />
     <br/>
     <NavBar />
     <main class="brands">
