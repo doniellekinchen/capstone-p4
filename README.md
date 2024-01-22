@@ -22,4 +22,5 @@
   <li>Users will be able to email their list to themselves for personal keeping</li>
   <li>Users will be able to click the link to each match from their list and see a descriptions about the product and be able to order online using an external link</li>
   <li>Users will be able to see relevant news about the latest makeup trends, products, etc. </li>
+  <li>Users who are beginners to makeup will have access to a page that has tips and tricks on how to use products, which tools to get and what stores are best</li>
 </ul>
