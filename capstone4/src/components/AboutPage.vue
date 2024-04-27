@@ -24,19 +24,6 @@ Discover your shade match effortlessly with Shady – Where Beauty Meets Innovat
 
 <br/>
 
-<h2 class="features">Connect with Shady:</h2>
-
-<p>📱 Follow us on Instagram for beauty tips and updates. |
-
-💌 Subscribe to our newsletter for exclusive offers and makeup insights. |
-
-📧 Have questions? Reach out to our support team at support@shadyapp.com. |
-
-Download the Shady App:
-
-📲 Available on the App Store and Google Play.
-
-</p>
 <br/>
 </div>
 </template>

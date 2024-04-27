@@ -2,6 +2,7 @@
     <nav>
     <router-link to="/" name="BrandList">Home</router-link>
     <router-link to="/about" name="AboutPage">About</router-link>
+    <router-link to="/updates" name="UpdatePage">Updates</router-link>
     </nav>
   </template>
   
