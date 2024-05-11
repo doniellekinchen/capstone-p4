@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <label for="shadeSelect">Select Your Shade</label> -->
     <div class="select-container">
     <select id="shadeSelect" v-model="selectedShade">
       <option value="">Select Your Shade</option>
@@ -15,7 +14,6 @@
   </div>
     <br/>
     <hr>
-    <!-- <div v-if="selectedShade">Selected Shade: {{ selectedShade }}</div> -->
     <MatchList
       v-if="!loading"
       :selectedBrand="stillSelectedBrand"
@@ -66,8 +64,6 @@ export default {
   watch: {
     selectedBrand: 'fetchData',
     selectedFoundation: 'fetchData',
-    // selectedFoundation(newVal) {
-      // console.log('selectedFoundation changed:', newVal);
     },
     
   mounted() {
@@ -84,7 +80,6 @@ export default {
         },
       })
       .then(response => {
-        // console.log(response.data.records);
         this.shadeData = response.data.records;
       })
       .catch(error => {
@@ -93,7 +88,6 @@ export default {
       .finally(() => {
         this.loading = false;
       })
-      // console.log("Selected Foundation in ShadeList:", this.selectedFoundation);
   },
   
 }

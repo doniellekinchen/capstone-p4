@@ -7,7 +7,9 @@
 
     <h2>Updates:</h2>
 
-    <p><b>April 27, 2024</b> - a form and an Update Page were developed to allow users to provide suggestions to the developers.</p>
+    <p><b>April 27, 2024</b> We developed a form and an Update Page to enable users to provide suggestions to the developers.</p>
+
+    <p><b>May 11, 2024</b> We incorporated <i>Giorgio Armani Luminous Silk</i> into the Foundation list. However, we have encountered a setback where not all shades from each brand are being displayed. Rest assured, we are actively addressing this issue to ensure that everyone can fully utilize our site's functionality.</p>
 </div>
 
 </template>
