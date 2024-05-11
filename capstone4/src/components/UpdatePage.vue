@@ -1,7 +1,7 @@
 <template>
 
 <div>
-    <p>Here is a list of full updates made for the site. If you see something missing, please submit an inquiry <a href="https://docs.google.com/forms/d/1LKcu3FTrx37GQ2MwDtfZSxEWHioZ1JNdI6icYeNTsYo/prefill">here</a>. Once the update is reviewed and completed, we will add it to the list below. Thank you!</p>
+    <p>Here is a list of full updates made for the site. If you see something missing, please submit an inquiry <a href="https://docs.google.com/forms/d/e/1FAIpQLSfuMvYp9dLFvBYOP0UD15bOsbhEuVUB4qyy8iYun3Uisq5-3Q/viewform?usp=sf_link">here</a>. Once the update is reviewed and completed, we will add it to the list below. Thank you!</p>
 
     <br/>
 
